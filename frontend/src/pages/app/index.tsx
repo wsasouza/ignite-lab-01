@@ -10,8 +10,6 @@ export default function Home() {
         <h1>Hello Auth 0</h1>
         <pre>{JSON.stringify(user, null, 2)}</pre>
       </div>
-
-      <a href="/api/auth/logout">Logout</a>
     </>
   );
 }
