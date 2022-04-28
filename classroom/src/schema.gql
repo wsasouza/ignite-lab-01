@@ -31,3 +31,11 @@ type Query {
   enrollments: [Enrollment!]!
   students: [Student!]!
 }
+
+type Mutation {
+  createCourse(data: CreateCourseInput!): Course!
+}
+
+input CreateCourseInput {
+  title: String!
+}
