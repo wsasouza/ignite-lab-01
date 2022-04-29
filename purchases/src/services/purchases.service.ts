@@ -48,6 +48,21 @@ export class PurchasesService {
       },
     });
 
+    const customer = await this.prisma.customer.findUnique({
+      where: { id: customerId },
+    });
+
+    this.kafka.emit('purchases.new-purchase', {
+      customer: {
+        authUserId: customer.authUserId,
+      },
+      product: {
+        id: product.id,
+        title: product.title,
+        slug: product.slug,
+      },
+    });
+
     return purchase;
   }
 }
