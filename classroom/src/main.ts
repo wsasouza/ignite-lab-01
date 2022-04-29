@@ -15,6 +15,12 @@ async function bootstrap() {
     },
   });
 
-  await app.listen(3334);
+  app.startAllMicroservices().then(() => {
+    console.log('[Classroom] Microservice runing!');
+  });
+
+  app.listen(3334).then(() => {
+    console.log('[Classroom] HTTP server runing!');
+  });
 }
 bootstrap();
